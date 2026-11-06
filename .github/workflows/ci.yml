@@ -1,0 +1,36 @@
+name: ci
+on: [push, pull_request]
+jobs:
+  python:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install -e ".[dev]"
+      - run: ruff check . && ruff format --check .
+      - run: pytest -q
+      - name: Held-out pins still match their workspaces
+        run: |
+          python - <<'PY'
+          from guard.evaluate import load_bench
+          from guard.report import world_digest
+          b = load_bench()
+          for v, key in (("v1", "heldout"), ("v2", "heldout2")):
+              pinned = open(f"eval/heldout/{v}.sha256").read().strip()
+              assert world_digest(b[key], b) == pinned, f"{v} workspace changed since it was pinned"
+          print("pins ok")
+          PY
+      - name: Reports are up to date
+        run: |
+          guard report
+          git diff --exit-code -- reports/REPORT.md
+  web:
+    runs-on: ubuntu-latest
+    defaults: { run: { working-directory: web } }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: "22" }
+      - run: npm ci
+      - run: npm run build

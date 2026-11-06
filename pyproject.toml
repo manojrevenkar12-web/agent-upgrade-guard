@@ -1,0 +1,46 @@
+[project]
+name = "agent-upgrade-guard"
+version = "0.1.0"
+description = "Tells you which of your AI agents a model upgrade breaks, before your users do"
+requires-python = ">=3.11"
+dependencies = ["fastapi>=0.110", "httpx>=0.27", "pydantic>=2", "uvicorn>=0.29"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff>=0.5"]
+
+[project.scripts]
+guard = "guard.cli:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["guard*"]
+
+[tool.ruff]
+line-length = 140
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+
+[tool.ruff.lint.per-file-ignores]
+# Phrase and template tables: one entry per line reads better than wrapped strings.
+"guard/sim/*" = ["E501"]
+"guard/probes.py" = ["E501"]
+"guard/textutil.py" = ["E501"]
+"guard/spec.py" = ["E501"]
+"guard/report.py" = ["E501"]
+"guard/cli.py" = ["E501"]
+"tests/*" = ["E501"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["guard"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]

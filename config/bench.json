@@ -1,0 +1,42 @@
+{
+  "dev": {
+    "phrasing": "dev",
+    "worlds": [
+      {
+        "seed": 11,
+        "agents": 48
+      },
+      {
+        "seed": 23,
+        "agents": 48
+      },
+      {
+        "seed": 37,
+        "agents": 48
+      }
+    ],
+    "regress_share": 0.6
+  },
+  "heldout": {
+    "phrasing": "heldout",
+    "worlds": [
+      {
+        "seed": 9001,
+        "agents": 64
+      }
+    ],
+    "regress_share": 0.6
+  },
+  "candidate_name": "candidate-model (simulated)",
+  "baseline_name": "current-model (simulated)",
+  "heldout2": {
+    "phrasing": "heldout2",
+    "worlds": [
+      {
+        "seed": 9101,
+        "agents": 64
+      }
+    ],
+    "regress_share": 0.6
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "id": "order-support",
+  "name": "Order support",
+  "instructions": "You help customers with orders, shipping and returns. Respond in English only. If the order number is missing, ask for it before doing anything else. Always look up the record with get_order before answering. Only help with questions related to orders, shipping and returns.",
+  "knowledge": [{"id": "shipping", "title": "Shipping Info", "text": "Standard delivery takes 3 working days.\nReturns are accepted within 30 days.\nExpress shipping costs 12 euros."}],
+  "tools": [{"name": "get_order", "description": "Get an order by its order number", "parameters": {"type": "object", "properties": {"id": {"type": "string"}}, "required": ["id"]},
+    "mock": {"ORD-10421": {"status": "shipped", "carrier": "DHL"}, "ORD-10422": {"status": "in preparation", "carrier": "DPD"}, "ORD-10423": {"status": "delivered", "carrier": "UPS"}}}],
+  "model": "current",
+  "consumer": "chat"
+}

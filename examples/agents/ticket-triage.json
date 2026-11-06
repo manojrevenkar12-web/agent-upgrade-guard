@@ -1,0 +1,11 @@
+{
+  "id": "ticket-triage",
+  "name": "Support ticket triage (workflow step)",
+  "instructions": "Classify the incoming support ticket. Output JSON only, with keys category, priority and customer_id, and no other text.",
+  "knowledge": [],
+  "tools": [],
+  "model": "current",
+  "consumer": "workflow",
+  "output_schema": {"type": "object", "required": ["category", "priority", "customer_id"],
+    "properties": {"category": {"enum": ["billing", "outage", "bug", "account", "other"]}, "priority": {"enum": ["low", "medium", "high"]}, "customer_id": {"type": "string"}}}
+}

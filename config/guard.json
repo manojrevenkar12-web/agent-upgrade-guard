@@ -1,0 +1,24 @@
+{
+  "per_kind": 12,
+  "alpha": 0.05,
+  "watch_p": 0.2,
+  "min_effect": 0.2,
+  "examples": 3,
+  "hard": [
+    "json_output",
+    "tool_first",
+    "refuse_topic",
+    "language",
+    "stay_in_scope",
+    "ask_if_missing"
+  ],
+  "text_diff_threshold": 0.74,
+  "suspect_baseline_fail": 0.5,
+  "suspect_min_n": 4,
+  "_notes": {
+    "per_kind": "distinct test messages per kind; 12 chosen from the dev budget sweep (reports/results.json, budget)",
+    "text_diff_threshold": "the comparison gate's best threshold on dev (recall minus false alarms)",
+    "hard": "a regression on these blocks the upgrade; others ask for review",
+    "suspect_baseline_fail": "if the current model fails a check this often, the check is suspect: the agent goes to review instead of passing"
+  }
+}

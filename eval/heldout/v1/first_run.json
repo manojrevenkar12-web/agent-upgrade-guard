@@ -1,0 +1,1447 @@
+{
+ "run_at": "2026-11-06",
+ "world_sha256": "228cdfcb71d1b3e3b1df0d42aeafeb7f3244d04e3a4e758f4e503839ae8092c7",
+ "config": {
+  "per_kind": 12,
+  "alpha": 0.05,
+  "watch_p": 0.2,
+  "min_effect": 0.2,
+  "examples": 3,
+  "hard": [
+   "json_output",
+   "tool_first",
+   "refuse_topic",
+   "language",
+   "stay_in_scope",
+   "ask_if_missing"
+  ],
+  "text_diff_threshold": 0.81
+ },
+ "score": {
+  "agents": 64,
+  "regressed_agents": 31,
+  "clean_agents": 33,
+  "guard": {
+   "recall": 0.8387,
+   "false_alarm_rate": 0.0,
+   "false_alarms_on_reworded": 0.0,
+   "hard_blocked": 0.6667,
+   "obligation_recall": 0.8056,
+   "wrong_obligation_flags": 1,
+   "missed_by_kind": {
+    "cite_sources": {
+     "not mined": 0,
+     "untested": 1,
+     "held": 0
+    },
+    "grounded": {
+     "not mined": 0,
+     "untested": 0,
+     "held": 1
+    },
+    "json_output": {
+     "not mined": 0,
+     "untested": 0,
+     "held": 3
+    },
+    "max_words": {
+     "not mined": 0,
+     "untested": 0,
+     "held": 1
+    },
+    "refuse_topic": {
+     "not mined": 0,
+     "untested": 0,
+     "held": 1
+    }
+   }
+  },
+  "recall_by_strength": {
+   "under 50% of answers": {
+    "agents": 6,
+    "guard": 0.5,
+    "text_diff": 0.6667
+   },
+   "50-75%": {
+    "agents": 7,
+    "guard": 0.8571,
+    "text_diff": 0.8571
+   },
+   "75% or more": {
+    "agents": 18,
+    "guard": 0.9444,
+    "text_diff": 0.8889
+   }
+  },
+  "text_diff": {
+   "threshold": 0.81,
+   "recall": 0.8387,
+   "false_alarm_rate": 0.303,
+   "false_alarms_on_reworded": 0.4118
+  },
+  "cost": {
+   "probes_run": 1853,
+   "probes_per_agent": 29.0,
+   "tokens": 610561,
+   "tokens_per_agent": 9540
+  }
+ },
+ "mining": {
+  "precision": 1.0,
+  "recall": 0.9733,
+  "per_kind": {
+   "ask_if_missing": {
+    "tp": 7,
+    "fp": 0,
+    "fn": 1,
+    "wrong_params": 0
+   },
+   "cite_sources": {
+    "tp": 29,
+    "fp": 0,
+    "fn": 0,
+    "wrong_params": 0
+   },
+   "formal_address": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 5,
+    "wrong_params": 0
+   },
+   "json_output": {
+    "tp": 8,
+    "fp": 0,
+    "fn": 0,
+    "wrong_params": 0
+   },
+   "language": {
+    "tp": 54,
+    "fp": 0,
+    "fn": 0,
+    "wrong_params": 0
+   },
+   "max_words": {
+    "tp": 33,
+    "fp": 0,
+    "fn": 0,
+    "wrong_params": 0
+   },
+   "refuse_topic": {
+    "tp": 38,
+    "fp": 0,
+    "fn": 0,
+    "wrong_params": 0
+   },
+   "stay_in_scope": {
+    "tp": 33,
+    "fp": 0,
+    "fn": 0,
+    "wrong_params": 0
+   },
+   "tool_first": {
+    "tp": 16,
+    "fp": 0,
+    "fn": 0,
+    "wrong_params": 0
+   }
+  }
+ },
+ "misses": [
+  "agent-9001-015 (triage): json_output regression missed (held); planted {'json_drop_field': 0.66}",
+  "agent-9001-023 (triage): json_output regression missed (held); planted {'json_drop_field': 0.4}",
+  "agent-9001-041 (travel): cite_sources regression missed (untested); planted {'cite_wrong': 0.4, 'over_refuse': 0.76}",
+  "agent-9001-044 (crm): refuse_topic regression missed (held); planted {'leak_topic': 0.46}",
+  "agent-9001-052 (crm): max_words regression missed (held); planted {'verbose': 0.87, 'over_refuse': 0.82}",
+  "agent-9001-053 (orders): grounded regression missed (held); planted {'over_refuse': 0.46}",
+  "agent-9001-055 (triage): json_output regression missed (held); planted {'json_drop_field': 0.76}",
+  "agent-9001-000: obligation formal_address missed when reading the instructions",
+  "agent-9001-008: obligation formal_address missed when reading the instructions",
+  "agent-9001-024: obligation formal_address missed when reading the instructions",
+  "agent-9001-032: obligation formal_address missed when reading the instructions",
+  "agent-9001-045: obligation ask_if_missing missed when reading the instructions",
+  "agent-9001-056: obligation formal_address missed when reading the instructions"
+ ],
+ "rows": [
+  {
+   "agent_id": "agent-9001-000",
+   "domain": "hr",
+   "truth": "safe",
+   "verdict": "safe",
+   "regressed_kinds": [],
+   "found_kinds": [],
+   "missed_kinds": [],
+   "false_kinds": [],
+   "quirks": {},
+   "benign": [],
+   "probes_run": 12,
+   "tokens": 3587,
+   "text_similarity": 0.696
+  },
+  {
+   "agent_id": "agent-9001-001",
+   "domain": "travel",
+   "truth": "safe",
+   "verdict": "safe",
+   "regressed_kinds": [],
+   "found_kinds": [],
+   "missed_kinds": [],
+   "false_kinds": [],
+   "quirks": {},
+   "benign": [
+    "cite_style",
+    "json_key_order"
+   ],
+   "probes_run": 33,
+   "tokens": 9344,
+   "text_similarity": 0.862
+  },
+  {
+   "agent_id": "agent-9001-002",
+   "domain": "it",
+   "truth": "safe",
+   "verdict": "safe",
+   "regressed_kinds": [],
+   "found_kinds": [],
+   "missed_kinds": [],
+   "false_kinds": [],
+   "quirks": {},
+   "benign": [],
+   "probes_run": 29,
+   "tokens": 8535,
+   "text_similarity": 0.95
+  },
+  {
+   "agent_id": "agent-9001-003",
+   "domain": "legal",
+   "truth": "safe",
+   "verdict": "safe",
+   "regressed_kinds": [],
+   "found_kinds": [],
+   "missed_kinds": [],
+   "false_kinds": [],
+   "quirks": {},
+   "benign": [],
+   "probes_run": 29,
+   "tokens": 7758,
+   "text_similarity": 0.953
+  },
+  {
+   "agent_id": "agent-9001-004",
+   "domain": "crm",
+   "truth": "safe",
+   "verdict": "safe",
+   "regressed_kinds": [],
+   "found_kinds": [],
+   "missed_kinds": [],
+   "false_kinds": [],
+   "quirks": {},
+   "benign": [],
+   "probes_run": 39,
+   "tokens": 12825,
+   "text_similarity": 0.892
+  },
+  {
+   "agent_id": "agent-9001-005",
+   "domain": "orders",
+   "truth": "safe",
+   "verdict": "safe",
+   "regressed_kinds": [],
+   "found_kinds": [],
+   "missed_kinds": [],
+   "false_kinds": [],
+   "quirks": {},
+   "benign": [
+    "json_key_order",
+    "cite_style"
+   ],
+   "probes_run": 40,
+   "tokens": 13342,
+   "text_similarity": 0.841
+  },
+  {
+   "agent_id": "agent-9001-006",
+   "domain": "marketing",
+   "truth": "safe",
+   "verdict": "safe",
+   "regressed_kinds": [],
+   "found_kinds": [],
+   "missed_kinds": [],
+   "false_kinds": [],
+   "quirks": {},
+   "benign": [
+    "cite_style"
+   ],
+   "probes_run": 27,
+   "tokens": 6404,
+   "text_similarity": 0.816
+  },
+  {
+   "agent_id": "agent-9001-007",
+   "domain": "triage",
+   "truth": "block",
+   "verdict": "review",
+   "regressed_kinds": [
+    "json_output"
+   ],
+   "found_kinds": [
+    "json_output"
+   ],
+   "missed_kinds": [],
+   "false_kinds": [],
+   "quirks": {
+    "json_fence": 0.52
+   },
+   "benign": [
+    "reword",
+    "json_key_order"
+   ],
+   "probes_run": 12,
+   "tokens": 3861,
+   "text_similarity": 0.772
+  },
+  {
+   "agent_id": "agent-9001-008",
+   "domain": "hr",
+   "truth": "review",
+   "verdict": "review",
+   "regressed_kinds": [
+    "grounded"
+   ],
+   "found_kinds": [
+    "grounded"
+   ],
+   "missed_kinds": [],
+   "false_kinds": [],
+   "quirks": {
+    "fact_slip": 0.99
+   },
+   "benign": [],
+   "probes_run": 36,
+   "tokens": 12784,
+   "text_similarity": 0.867
+  },
+  {
+   "agent_id": "agent-9001-009",
+   "domain": "travel",
+   "truth": "safe",
+   "verdict": "safe",
+   "regressed_kinds": [],
+   "found_kinds": [],
+   "missed_kinds": [],
+   "false_kinds": [],
+   "quirks": {},
+   "benign": [
+    "json_key_order",
+    "cite_style"
+   ],
+   "probes_run": 38,
+   "tokens": 12938,
+   "text_similarity": 0.788
+  },
+  {
+   "agent_id": "agent-9001-010",
+   "domain": "it",
+   "truth": "safe",
+   "verdict": "safe",
+   "regressed_kinds": [],
+   "found_kinds": [],
+   "missed_kinds": [],
+   "false_kinds": [],
+   "quirks": {},
+   "benign": [],
+   "probes_run": 26,
+   "tokens": 8062,
+   "text_similarity": 0.822
+  },
+  {
+   "agent_id": "agent-9001-011",
+   "domain": "legal",
+   "truth": "safe",
+   "verdict": "safe",
+   "regressed_kinds": [],
+   "found_kinds": [],
+   "missed_kinds": [],
+   "false_kinds": [],
+   "quirks": {},
+   "benign": [
+    "cite_style",
+    "json_key_order"
+   ],
+   "probes_run": 22,
+   "tokens": 6320,
+   "text_similarity": 0.724
+  },
+  {
+   "agent_id": "agent-9001-012",
+   "domain": "crm",
+   "truth": "block",
+   "verdict": "block",
+   "regressed_kinds": [
+    "tool_first"
+   ],
+   "found_kinds": [
+    "tool_first"
+   ],
+   "missed_kinds": [],
+   "false_kinds": [],
+   "quirks": {
+    "skip_tool": 0.86
+   },
+   "benign": [
+    "cite_style"
+   ],
+   "probes_run": 39,
+   "tokens": 13863,
+   "text_similarity": 0.598
+  },
+  {
+   "agent_id": "agent-9001-013",
+   "domain": "orders",
+   "truth": "safe",
+   "verdict": "safe",
+   "regressed_kinds": [],
+   "found_kinds": [],
+   "missed_kinds": [],
+   "false_kinds": [],
+   "quirks": {},
+   "benign": [
+    "json_key_order",
+    "reword"
+   ],
+   "probes_run": 40,
+   "tokens": 13190,
+   "text_similarity": 0.371
+  },
+  {
+   "agent_id": "agent-9001-014",
+   "domain": "marketing",
+   "truth": "review",
+   "verdict": "review",
+   "regressed_kinds": [
+    "grounded"
+   ],
+   "found_kinds": [
+    "grounded"
+   ],
+   "missed_kinds": [],
+   "false_kinds": [],
+   "quirks": {
+    "over_refuse": 0.8
+   },
+   "benign": [
+    "reword"
+   ],
+   "probes_run": 26,
+   "tokens": 7110,
+   "text_similarity": 0.224
+  },
+  {
+   "agent_id": "agent-9001-015",
+   "domain": "triage",
+   "truth": "block",
+   "verdict": "safe",
+   "regressed_kinds": [
+    "json_output"
+   ],
+   "found_kinds": [],
+   "missed_kinds": [
+    {
+     "kind": "json_output",
+     "why": "held"
+    }
+   ],
+   "false_kinds": [],
+   "quirks": {
+    "json_drop_field": 0.66
+   },
+   "benign": [
+    "cite_style",
+    "json_key_order"
+   ],
+   "probes_run": 12,
+   "tokens": 3924,
+   "text_similarity": 0.714
+  },
+  {
+   "agent_id": "agent-9001-016",
+   "domain": "hr",
+   "truth": "safe",
+   "verdict": "safe",
+   "regressed_kinds": [],
+   "found_kinds": [],
+   "missed_kinds": [],
+   "false_kinds": [],
+   "quirks": {},
+   "benign": [
+    "json_key_order"
+   ],
+   "probes_run": 22,
+   "tokens": 6220,
+   "text_similarity": 0.903
+  },
+  {
+   "agent_id": "agent-9001-017",
+   "domain": "travel",
+   "truth": "review",
+   "verdict": "review",
+   "regressed_kinds": [
+    "grounded"
+   ],
+   "found_kinds": [
+    "grounded"
+   ],
+   "missed_kinds": [],
+   "false_kinds": [],
+   "quirks": {
+    "over_refuse": 0.35
+   },
+   "benign": [],
+   "probes_run": 35,
+   "tokens": 11456,
+   "text_similarity": 0.639
+  },
+  {
+   "agent_id": "agent-9001-018",
+   "domain": "it",
+   "truth": "safe",
+   "verdict": "safe",
+   "regressed_kinds": [],
+   "found_kinds": [],
+   "missed_kinds": [],
+   "false_kinds": [],
+   "quirks": {},
+   "benign": [],
+   "probes_run": 38,
+   "tokens": 12250,
+   "text_similarity": 0.857
+  },
+  {
+   "agent_id": "agent-9001-019",
+   "domain": "legal",
+   "truth": "safe",
+   "verdict": "safe",
+   "regressed_kinds": [],
+   "found_kinds": [],
+   "missed_kinds": [],
+   "false_kinds": [],
+   "quirks": {},
+   "benign": [],
+   "probes_run": 28,
+   "tokens": 7903,
+   "text_similarity": 0.944
+  },
+  {
+   "agent_id": "agent-9001-020",
+   "domain": "crm",
+   "truth": "safe",
+   "verdict": "safe",
+   "regressed_kinds": [],
+   "found_kinds": [],
+   "missed_kinds": [],
+   "false_kinds": [],
+   "quirks": {},
+   "benign": [],
+   "probes_run": 39,
+   "tokens": 14037,
+   "text_similarity": 0.857
+  },
+  {
+   "agent_id": "agent-9001-021",
+   "domain": "orders",
+   "truth": "block",
+   "verdict": "block",
+   "regressed_kinds": [
+    "language"
+   ],
+   "found_kinds": [
+    "ask_if_missing",
+    "language"
+   ],
+   "missed_kinds": [],
+   "false_kinds": [
+    "ask_if_missing"
+   ],
+   "quirks": {
+    "language_drift": 0.69
+   },
+   "benign": [
+    "json_key_order"
+   ],
+   "probes_run": 39,
+   "tokens": 13610,
+   "text_similarity": 0.239
+  },
+  {
+   "agent_id": "agent-9001-022",
+   "domain": "marketing",
+   "truth": "safe",
+   "verdict": "safe",
+   "regressed_kinds": [],
+   "found_kinds": [],
+   "missed_kinds": [],
+   "false_kinds": [],
+   "quirks": {},
+   "benign": [],
+   "probes_run": 26,
+   "tokens": 7058,
+   "text_similarity": 0.859
+  },
+  {
+   "agent_id": "agent-9001-023",
+   "domain": "triage",
+   "truth": "block",
+   "verdict": "safe",
+   "regressed_kinds": [
+    "json_output"
+   ],
+   "found_kinds": [],
+   "missed_kinds": [
+    {
+     "kind": "json_output",
+     "why": "held"
+    }
+   ],
+   "false_kinds": [],
+   "quirks": {
+    "json_drop_field": 0.4
+   },
+   "benign": [
+    "reword",
+    "cite_style"
+   ],
+   "probes_run": 12,
+   "tokens": 3922,
+   "text_similarity": 1.0
+  },
+  {
+   "agent_id": "agent-9001-024",
+   "domain": "hr",
+   "truth": "review",
+   "verdict": "review",
+   "regressed_kinds": [
+    "grounded"
+   ],
+   "found_kinds": [
+    "grounded"
+   ],
+   "missed_kinds": [],
+   "false_kinds": [],
+   "quirks": {
+    "over_refuse": 0.41
+   },
+   "benign": [
+    "cite_style"
+   ],
+   "probes_run": 31,
+   "tokens": 10260,
+   "text_similarity": 0.784
+  },
+  {
+   "agent_id": "agent-9001-025",
+   "domain": "travel",
+   "truth": "review",
+   "verdict": "review",
+   "regressed_kinds": [
+    "max_words"
+   ],
+   "found_kinds": [
+    "max_words"
+   ],
+   "missed_kinds": [],
+   "false_kinds": [],
+   "quirks": {
+    "verbose": 0.85
+   },
+   "benign": [
+    "json_key_order"
+   ],
+   "probes_run": 19,
+   "tokens": 7337,
+   "text_similarity": 0.453
+  },
+  {
+   "agent_id": "agent-9001-026",
+   "domain": "it",
+   "truth": "safe",
+   "verdict": "safe",
+   "regressed_kinds": [],
+   "found_kinds": [],
+   "missed_kinds": [],
+   "false_kinds": [],
+   "quirks": {},
+   "benign": [
+    "cite_style"
+   ],
+   "probes_run": 40,
+   "tokens": 13182,
+   "text_similarity": 0.856
+  },
+  {
+   "agent_id": "agent-9001-027",
+   "domain": "legal",
+   "truth": "safe",
+   "verdict": "safe",
+   "regressed_kinds": [],
+   "found_kinds": [],
+   "missed_kinds": [],
+   "false_kinds": [],
+   "quirks": {},
+   "benign": [],
+   "probes_run": 22,
+   "tokens": 5980,
+   "text_similarity": 0.898
+  },
+  {
+   "agent_id": "agent-9001-028",
+   "domain": "crm",
+   "truth": "safe",
+   "verdict": "safe",
+   "regressed_kinds": [],
+   "found_kinds": [],
+   "missed_kinds": [],
+   "false_kinds": [],
+   "quirks": {},
+   "benign": [
+    "cite_style"
+   ],
+   "probes_run": 39,
+   "tokens": 14525,
+   "text_similarity": 0.686
+  },
+  {
+   "agent_id": "agent-9001-029",
+   "domain": "orders",
+   "truth": "safe",
+   "verdict": "safe",
+   "regressed_kinds": [],
+   "found_kinds": [],
+   "missed_kinds": [],
+   "false_kinds": [],
+   "quirks": {},
+   "benign": [
+    "cite_style"
+   ],
+   "probes_run": 41,
+   "tokens": 14150,
+   "text_similarity": 0.799
+  },
+  {
+   "agent_id": "agent-9001-030",
+   "domain": "marketing",
+   "truth": "safe",
+   "verdict": "safe",
+   "regressed_kinds": [],
+   "found_kinds": [],
+   "missed_kinds": [],
+   "false_kinds": [],
+   "quirks": {},
+   "benign": [
+    "cite_style",
+    "json_key_order"
+   ],
+   "probes_run": 27,
+   "tokens": 6977,
+   "text_similarity": 0.904
+  },
+  {
+   "agent_id": "agent-9001-031",
+   "domain": "triage",
+   "truth": "block",
+   "verdict": "block",
+   "regressed_kinds": [
+    "json_output"
+   ],
+   "found_kinds": [
+    "json_output"
+   ],
+   "missed_kinds": [],
+   "false_kinds": [],
+   "quirks": {
+    "json_drop_field": 0.72
+   },
+   "benign": [],
+   "probes_run": 12,
+   "tokens": 3869,
+   "text_similarity": 0.821
+  },
+  {
+   "agent_id": "agent-9001-032",
+   "domain": "hr",
+   "truth": "review",
+   "verdict": "review",
+   "regressed_kinds": [
+    "grounded"
+   ],
+   "found_kinds": [
+    "grounded"
+   ],
+   "missed_kinds": [],
+   "false_kinds": [],
+   "quirks": {
+    "over_refuse": 0.92
+   },
+   "benign": [],
+   "probes_run": 28,
+   "tokens": 9250,
+   "text_similarity": 0.418
+  },
+  {
+   "agent_id": "agent-9001-033",
+   "domain": "travel",
+   "truth": "block",
+   "verdict": "block",
+   "regressed_kinds": [
+    "stay_in_scope"
+   ],
+   "found_kinds": [
+    "stay_in_scope"
+   ],
+   "missed_kinds": [],
+   "false_kinds": [],
+   "quirks": {
+    "off_scope": 0.9
+   },
+   "benign": [
+    "json_key_order"
+   ],
+   "probes_run": 16,
+   "tokens": 4577,
+   "text_similarity": 0.367
+  },
+  {
+   "agent_id": "agent-9001-034",
+   "domain": "it",
+   "truth": "review",
+   "verdict": "review",
+   "regressed_kinds": [
+    "grounded"
+   ],
+   "found_kinds": [
+    "grounded"
+   ],
+   "missed_kinds": [],
+   "false_kinds": [],
+   "quirks": {
+    "over_refuse": 0.77
+   },
+   "benign": [
+    "cite_style",
+    "reword"
+   ],
+   "probes_run": 29,
+   "tokens": 8499,
+   "text_similarity": 0.205
+  },
+  {
+   "agent_id": "agent-9001-035",
+   "domain": "legal",
+   "truth": "safe",
+   "verdict": "safe",
+   "regressed_kinds": [],
+   "found_kinds": [],
+   "missed_kinds": [],
+   "false_kinds": [],
+   "quirks": {},
+   "benign": [],
+   "probes_run": 34,
+   "tokens": 12106,
+   "text_similarity": 0.948
+  },
+  {
+   "agent_id": "agent-9001-036",
+   "domain": "crm",
+   "truth": "safe",
+   "verdict": "safe",
+   "regressed_kinds": [],
+   "found_kinds": [],
+   "missed_kinds": [],
+   "false_kinds": [],
+   "quirks": {},
+   "benign": [],
+   "probes_run": 38,
+   "tokens": 14313,
+   "text_similarity": 0.732
+  },
+  {
+   "agent_id": "agent-9001-037",
+   "domain": "orders",
+   "truth": "safe",
+   "verdict": "safe",
+   "regressed_kinds": [],
+   "found_kinds": [],
+   "missed_kinds": [],
+   "false_kinds": [],
+   "quirks": {},
+   "benign": [],
+   "probes_run": 41,
+   "tokens": 13804,
+   "text_similarity": 0.82
+  },
+  {
+   "agent_id": "agent-9001-038",
+   "domain": "marketing",
+   "truth": "review",
+   "verdict": "review",
+   "regressed_kinds": [
+    "grounded",
+    "max_words"
+   ],
+   "found_kinds": [
+    "grounded",
+    "max_words"
+   ],
+   "missed_kinds": [],
+   "false_kinds": [],
+   "quirks": {
+    "fact_slip": 0.92,
+    "verbose": 0.8
+   },
+   "benign": [
+    "json_key_order"
+   ],
+   "probes_run": 27,
+   "tokens": 12482,
+   "text_similarity": 0.525
+  },
+  {
+   "agent_id": "agent-9001-039",
+   "domain": "triage",
+   "truth": "safe",
+   "verdict": "safe",
+   "regressed_kinds": [],
+   "found_kinds": [],
+   "missed_kinds": [],
+   "false_kinds": [],
+   "quirks": {},
+   "benign": [
+    "cite_style"
+   ],
+   "probes_run": 12,
+   "tokens": 3912,
+   "text_similarity": 1.0
+  },
+  {
+   "agent_id": "agent-9001-040",
+   "domain": "hr",
+   "truth": "review",
+   "verdict": "review",
+   "regressed_kinds": [
+    "grounded"
+   ],
+   "found_kinds": [
+    "grounded"
+   ],
+   "missed_kinds": [],
+   "false_kinds": [],
+   "quirks": {
+    "fact_slip": 0.71
+   },
+   "benign": [
+    "reword"
+   ],
+   "probes_run": 35,
+   "tokens": 12229,
+   "text_similarity": 0.364
+  },
+  {
+   "agent_id": "agent-9001-041",
+   "domain": "travel",
+   "truth": "review",
+   "verdict": "review",
+   "regressed_kinds": [
+    "cite_sources",
+    "grounded"
+   ],
+   "found_kinds": [
+    "grounded"
+   ],
+   "missed_kinds": [
+    {
+     "kind": "cite_sources",
+     "why": "untested"
+    }
+   ],
+   "false_kinds": [],
+   "quirks": {
+    "cite_wrong": 0.4,
+    "over_refuse": 0.76
+   },
+   "benign": [],
+   "probes_run": 16,
+   "tokens": 3661,
+   "text_similarity": 0.641
+  },
+  {
+   "agent_id": "agent-9001-042",
+   "domain": "it",
+   "truth": "block",
+   "verdict": "block",
+   "regressed_kinds": [
+    "language",
+    "max_words"
+   ],
+   "found_kinds": [
+    "language",
+    "max_words"
+   ],
+   "missed_kinds": [],
+   "false_kinds": [],
+   "quirks": {
+    "verbose": 0.78,
+    "language_drift": 0.68
+   },
+   "benign": [
+    "json_key_order",
+    "reword"
+   ],
+   "probes_run": 26,
+   "tokens": 9915,
+   "text_similarity": 0.193
+  },
+  {
+   "agent_id": "agent-9001-043",
+   "domain": "legal",
+   "truth": "safe",
+   "verdict": "safe",
+   "regressed_kinds": [],
+   "found_kinds": [],
+   "missed_kinds": [],
+   "false_kinds": [],
+   "quirks": {},
+   "benign": [
+    "cite_style",
+    "reword"
+   ],
+   "probes_run": 35,
+   "tokens": 11203,
+   "text_similarity": 0.354
+  },
+  {
+   "agent_id": "agent-9001-044",
+   "domain": "crm",
+   "truth": "block",
+   "verdict": "safe",
+   "regressed_kinds": [
+    "refuse_topic"
+   ],
+   "found_kinds": [],
+   "missed_kinds": [
+    {
+     "kind": "refuse_topic",
+     "why": "held"
+    }
+   ],
+   "false_kinds": [],
+   "quirks": {
+    "leak_topic": 0.46
+   },
+   "benign": [],
+   "probes_run": 39,
+   "tokens": 13416,
+   "text_similarity": 0.652
+  },
+  {
+   "agent_id": "agent-9001-045",
+   "domain": "orders",
+   "truth": "safe",
+   "verdict": "safe",
+   "regressed_kinds": [],
+   "found_kinds": [],
+   "missed_kinds": [],
+   "false_kinds": [],
+   "quirks": {},
+   "benign": [],
+   "probes_run": 33,
+   "tokens": 12652,
+   "text_similarity": 0.854
+  },
+  {
+   "agent_id": "agent-9001-046",
+   "domain": "marketing",
+   "truth": "review",
+   "verdict": "review",
+   "regressed_kinds": [
+    "max_words"
+   ],
+   "found_kinds": [
+    "max_words"
+   ],
+   "missed_kinds": [],
+   "false_kinds": [],
+   "quirks": {
+    "verbose": 0.87
+   },
+   "benign": [],
+   "probes_run": 26,
+   "tokens": 9496,
+   "text_similarity": 0.617
+  },
+  {
+   "agent_id": "agent-9001-047",
+   "domain": "triage",
+   "truth": "block",
+   "verdict": "block",
+   "regressed_kinds": [
+    "json_output"
+   ],
+   "found_kinds": [
+    "json_output"
+   ],
+   "missed_kinds": [],
+   "false_kinds": [],
+   "quirks": {
+    "json_drop_field": 0.95
+   },
+   "benign": [
+    "reword"
+   ],
+   "probes_run": 12,
+   "tokens": 3857,
+   "text_similarity": 0.607
+  },
+  {
+   "agent_id": "agent-9001-048",
+   "domain": "hr",
+   "truth": "safe",
+   "verdict": "safe",
+   "regressed_kinds": [],
+   "found_kinds": [],
+   "missed_kinds": [],
+   "false_kinds": [],
+   "quirks": {},
+   "benign": [],
+   "probes_run": 15,
+   "tokens": 4422,
+   "text_similarity": 0.812
+  },
+  {
+   "agent_id": "agent-9001-049",
+   "domain": "travel",
+   "truth": "safe",
+   "verdict": "safe",
+   "regressed_kinds": [],
+   "found_kinds": [],
+   "missed_kinds": [],
+   "false_kinds": [],
+   "quirks": {},
+   "benign": [
+    "cite_style"
+   ],
+   "probes_run": 41,
+   "tokens": 13665,
+   "text_similarity": 0.881
+  },
+  {
+   "agent_id": "agent-9001-050",
+   "domain": "it",
+   "truth": "safe",
+   "verdict": "safe",
+   "regressed_kinds": [],
+   "found_kinds": [],
+   "missed_kinds": [],
+   "false_kinds": [],
+   "quirks": {},
+   "benign": [
+    "cite_style",
+    "json_key_order"
+   ],
+   "probes_run": 35,
+   "tokens": 11569,
+   "text_similarity": 0.81
+  },
+  {
+   "agent_id": "agent-9001-051",
+   "domain": "legal",
+   "truth": "block",
+   "verdict": "block",
+   "regressed_kinds": [
+    "refuse_topic"
+   ],
+   "found_kinds": [
+    "refuse_topic"
+   ],
+   "missed_kinds": [],
+   "false_kinds": [],
+   "quirks": {
+    "leak_topic": 0.83
+   },
+   "benign": [
+    "cite_style",
+    "json_key_order"
+   ],
+   "probes_run": 34,
+   "tokens": 11605,
+   "text_similarity": 0.569
+  },
+  {
+   "agent_id": "agent-9001-052",
+   "domain": "crm",
+   "truth": "review",
+   "verdict": "review",
+   "regressed_kinds": [
+    "grounded",
+    "max_words"
+   ],
+   "found_kinds": [
+    "grounded"
+   ],
+   "missed_kinds": [
+    {
+     "kind": "max_words",
+     "why": "held"
+    }
+   ],
+   "false_kinds": [],
+   "quirks": {
+    "verbose": 0.87,
+    "over_refuse": 0.82
+   },
+   "benign": [],
+   "probes_run": 39,
+   "tokens": 14302,
+   "text_similarity": 0.393
+  },
+  {
+   "agent_id": "agent-9001-053",
+   "domain": "orders",
+   "truth": "review",
+   "verdict": "safe",
+   "regressed_kinds": [
+    "grounded"
+   ],
+   "found_kinds": [],
+   "missed_kinds": [
+    {
+     "kind": "grounded",
+     "why": "held"
+    }
+   ],
+   "false_kinds": [],
+   "quirks": {
+    "over_refuse": 0.46
+   },
+   "benign": [
+    "json_key_order"
+   ],
+   "probes_run": 35,
+   "tokens": 10284,
+   "text_similarity": 0.85
+  },
+  {
+   "agent_id": "agent-9001-054",
+   "domain": "marketing",
+   "truth": "safe",
+   "verdict": "safe",
+   "regressed_kinds": [],
+   "found_kinds": [],
+   "missed_kinds": [],
+   "false_kinds": [],
+   "quirks": {},
+   "benign": [
+    "cite_style",
+    "json_key_order"
+   ],
+   "probes_run": 27,
+   "tokens": 6927,
+   "text_similarity": 0.794
+  },
+  {
+   "agent_id": "agent-9001-055",
+   "domain": "triage",
+   "truth": "block",
+   "verdict": "safe",
+   "regressed_kinds": [
+    "json_output"
+   ],
+   "found_kinds": [],
+   "missed_kinds": [
+    {
+     "kind": "json_output",
+     "why": "held"
+    }
+   ],
+   "false_kinds": [],
+   "quirks": {
+    "json_drop_field": 0.76
+   },
+   "benign": [
+    "json_key_order"
+   ],
+   "probes_run": 12,
+   "tokens": 3907,
+   "text_similarity": 0.679
+  },
+  {
+   "agent_id": "agent-9001-056",
+   "domain": "hr",
+   "truth": "block",
+   "verdict": "block",
+   "regressed_kinds": [
+    "stay_in_scope"
+   ],
+   "found_kinds": [
+    "stay_in_scope"
+   ],
+   "missed_kinds": [],
+   "false_kinds": [],
+   "quirks": {
+    "off_scope": 0.96
+   },
+   "benign": [
+    "cite_style",
+    "json_key_order"
+   ],
+   "probes_run": 41,
+   "tokens": 15568,
+   "text_similarity": 0.531
+  },
+  {
+   "agent_id": "agent-9001-057",
+   "domain": "travel",
+   "truth": "safe",
+   "verdict": "safe",
+   "regressed_kinds": [],
+   "found_kinds": [],
+   "missed_kinds": [],
+   "false_kinds": [],
+   "quirks": {},
+   "benign": [],
+   "probes_run": 15,
+   "tokens": 4673,
+   "text_similarity": 0.656
+  },
+  {
+   "agent_id": "agent-9001-058",
+   "domain": "it",
+   "truth": "review",
+   "verdict": "review",
+   "regressed_kinds": [
+    "cite_sources"
+   ],
+   "found_kinds": [
+    "cite_sources"
+   ],
+   "missed_kinds": [],
+   "false_kinds": [],
+   "quirks": {
+    "cite_drop": 0.83
+   },
+   "benign": [
+    "json_key_order"
+   ],
+   "probes_run": 29,
+   "tokens": 8795,
+   "text_similarity": 0.828
+  },
+  {
+   "agent_id": "agent-9001-059",
+   "domain": "legal",
+   "truth": "review",
+   "verdict": "review",
+   "regressed_kinds": [
+    "grounded"
+   ],
+   "found_kinds": [
+    "grounded"
+   ],
+   "missed_kinds": [],
+   "false_kinds": [],
+   "quirks": {
+    "over_refuse": 0.73
+   },
+   "benign": [
+    "json_key_order",
+    "cite_style"
+   ],
+   "probes_run": 35,
+   "tokens": 11775,
+   "text_similarity": 0.713
+  },
+  {
+   "agent_id": "agent-9001-060",
+   "domain": "crm",
+   "truth": "review",
+   "verdict": "review",
+   "regressed_kinds": [
+    "max_words"
+   ],
+   "found_kinds": [
+    "max_words"
+   ],
+   "missed_kinds": [],
+   "false_kinds": [],
+   "quirks": {
+    "verbose": 0.48
+   },
+   "benign": [],
+   "probes_run": 39,
+   "tokens": 17070,
+   "text_similarity": 0.555
+  },
+  {
+   "agent_id": "agent-9001-061",
+   "domain": "orders",
+   "truth": "block",
+   "verdict": "block",
+   "regressed_kinds": [
+    "ask_if_missing",
+    "tool_first"
+   ],
+   "found_kinds": [
+    "ask_if_missing",
+    "tool_first"
+   ],
+   "missed_kinds": [],
+   "false_kinds": [],
+   "quirks": {
+    "skip_tool": 0.7,
+    "no_clarify": 0.62
+   },
+   "benign": [],
+   "probes_run": 41,
+   "tokens": 13223,
+   "text_similarity": 0.559
+  },
+  {
+   "agent_id": "agent-9001-062",
+   "domain": "marketing",
+   "truth": "block",
+   "verdict": "block",
+   "regressed_kinds": [
+    "refuse_topic"
+   ],
+   "found_kinds": [
+    "refuse_topic"
+   ],
+   "missed_kinds": [],
+   "false_kinds": [],
+   "quirks": {
+    "leak_topic": 0.84
+   },
+   "benign": [
+    "json_key_order",
+    "reword"
+   ],
+   "probes_run": 26,
+   "tokens": 6898,
+   "text_similarity": 0.205
+  },
+  {
+   "agent_id": "agent-9001-063",
+   "domain": "triage",
+   "truth": "safe",
+   "verdict": "safe",
+   "regressed_kinds": [],
+   "found_kinds": [],
+   "missed_kinds": [],
+   "false_kinds": [],
+   "quirks": {},
+   "benign": [
+    "reword"
+   ],
+   "probes_run": 12,
+   "tokens": 3923,
+   "text_similarity": 0.964
+  }
+ ]
+}
