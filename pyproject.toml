@@ -39,8 +39,5 @@ select = ["E", "F", "I", "B", "UP"]
 known-first-party = ["guard"]
 
 [tool.pytest.ini_options]
-testpaths = ["tests"]
-
-[tool.pytest.ini_options]
 pythonpath = ["."]
 testpaths = ["tests"]
